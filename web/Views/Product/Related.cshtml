@@ -1,0 +1,28 @@
+﻿
+
+<div class="related-products-wrapper">
+    <h2 class="related-products-title">Related Products</h2>
+    <div class="related-products-carousel">
+
+        @foreach (var p in Model)
+        {
+
+            <div class="single-product">
+                <div class="product-f-image">
+                    <img src="~/Content/img/@p.Product_images" alt="">
+                    <div class="product-hover">
+                        <a href=@Url.Action("Detail","Product",new { id=p.Product_ID}) class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                    </div>
+                </div>
+
+                <h2><a href=@Url.Action("Detail","Product",new { id=p.Product_ID})>@p.Product_name</a></h2>
+
+                <div class="product-carousel-price">
+                    <ins>@p.Product_price</ins>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>

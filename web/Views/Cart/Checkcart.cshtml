@@ -1,0 +1,65 @@
+﻿@*@model IEnumerable<web.Models.ItemDetail>
+@{
+    ViewBag.Title = "Checkcart";
+
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.productDetai.Product_ID)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.productDetai.Product_name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.productDetai.Product_price)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+
+        <th>
+
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.productDetai.Product_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productDetai.Product_ID)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.productDetai.Product_price)
+            </td>
+
+            <td>
+                <Form action=@Url.Action("Update_Quantity_Cart","Cart") method="get">
+                    <input type="hidden" name="Id" value=@item.productDetai>
+                    <input type="hidden" name="name" value=@item.CartelogyName>
+                    <input type="number" name="soluong" value=@item.SoLuong>
+                    <button type="submit">Update</button>
+                </Form>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThanhTien)
+            </td>
+
+            <td>
+
+                <a href=@Url.Action("RemoveCart", "Cart", new { Id = item.Cartelogy_ID })> Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<a href=@Url.Action("Thanhtoan","Cart") class="btn btn-success"> Thanh Toán</a>*@
+

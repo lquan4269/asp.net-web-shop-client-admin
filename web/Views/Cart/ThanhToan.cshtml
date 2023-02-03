@@ -1,0 +1,56 @@
+﻿@*@model IEnumerable<web.Models.Catelogy>
+@{
+    ViewBag.Title = "Index";
+
+}
+<h2>ThanhToan</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cartelogy_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CartelogyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThanhTien)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cartelogy_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CartelogyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThanhTien)
+            </td>
+
+        </tr>
+    }
+
+</table>
+@using (Html.BeginForm("Check", "Cart", FormMethod.Post))
+{
+    <label for="customerName"><b>Tên khách hàng</b></label>
+    <input type="text" name="customerName" required />
+    <label for="address"><b>Địa chỉ khách hàng</b></label>
+    <input type="text" name="diachi" required />
+    <input type="submit" value="Confirm" class="btn btn-success" />
+}*@
